@@ -44,7 +44,7 @@ class _HelpUsState extends State<HelpUs> {
                 height: 100,
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "We are here to help you ",
+                  "Estamos aquí para ayudarte ",
                   style: TextStyle(
                     color: Color(0xFFF9A826),
                     fontSize: 30,
@@ -67,15 +67,15 @@ class _HelpUsState extends State<HelpUs> {
                       autofocus: false,
                       decoration: InputDecoration(
                         
-                          labelText: "Name",
-                          hintText: 'Enter Name',
+                          labelText: "Nombre",
+                          hintText: 'Introduzca su nombre',
                           contentPadding:
                               EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(32.0))),
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return "Name cannot be empty";
+                          return "El nombre no puede estar vacío";
                         }
                         return null;
                       },
@@ -86,15 +86,15 @@ class _HelpUsState extends State<HelpUs> {
                     child: TextFormField(
                       autofocus: false,
                       decoration: InputDecoration(
-                          labelText: "Location",
-                          hintText: 'Enter Location',
+                          labelText: "Dirección",
+                          hintText: 'Introduzca dirección',
                           contentPadding:
                               EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(32.0))),
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return "Location cannot be empty";
+                          return "La dirección no puede estar vacía";
                         }
                         return null;
                       },
@@ -107,15 +107,15 @@ class _HelpUsState extends State<HelpUs> {
                       maxLines: 10,
                       autofocus: false,
                       decoration: InputDecoration(
-                          labelText: "Description",
-                          hintText: 'Describe how we can help you...',
+                          labelText: "Descripción",
+                          hintText: 'Describe cómo podemos ayudarte...',
                           contentPadding:
                               EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(32.0))),
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return "Description cannot be empty";
+                          return "La descripción no puede estar vacía";
                         }
                         return null;
                       },
@@ -143,7 +143,7 @@ class _HelpUsState extends State<HelpUs> {
                                       color: Colors.white,
                                     )
                                   : Text(
-                                      "Submit",
+                                      "Enviar",
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontWeight: FontWeight.bold,

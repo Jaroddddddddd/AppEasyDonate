@@ -34,7 +34,7 @@ class _SubmittedState extends State<Submitted> {
               width: MediaQuery.of(context).size.width,
               alignment: Alignment.center,
               child: Text(
-                "Your details has been recorded",
+                "Sus datos han sido registrados",
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
             )

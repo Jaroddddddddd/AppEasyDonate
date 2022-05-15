@@ -12,7 +12,7 @@ class _DonatePageState extends State<DonatePage> {
   bool changeButton = false;
   final _formKey = GlobalKey<FormState>();
 
-  double _currentSliderValue = 20;
+  double _currentSliderValue = 10;
 
   moveToSubmit(BuildContext context) async {
     if (_formKey.currentState!.validate()) {
@@ -44,7 +44,7 @@ class _DonatePageState extends State<DonatePage> {
                 height: 100,
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "Donate Food Details",
+                  "Donación de Comida",
                   style: TextStyle(
                     color: Color(0xFFF9A826),
                     fontSize: 30,
@@ -67,15 +67,15 @@ class _DonatePageState extends State<DonatePage> {
                       autofocus: false,
                       decoration: InputDecoration(
                         
-                          labelText: "Pickup where ?",
-                          hintText: 'Enter Location',
+                          labelText: "Recoger en (Dirección)",
+                          hintText: 'Introduzca la dirección',
                           contentPadding:
                               EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(32.0))),
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return "Location cannot be empty";
+                          return "La ubicación no puede estar vacía";
                         }
                         return null;
                       },
@@ -86,15 +86,15 @@ class _DonatePageState extends State<DonatePage> {
                     child: TextFormField(
                       autofocus: false,
                       decoration: InputDecoration(
-                          labelText: "Food Item(s)",
-                          hintText: 'Enter Food Items',
+                          labelText: "Alimentos",
+                          hintText: 'Introduzca los alimentos',
                           contentPadding:
                               EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(32.0))),
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return "Food Item(s) cannot be empty";
+                          return "Los artículos de comida no pueden estar vacíos";
                         }
                         return null;
                       },
@@ -105,15 +105,15 @@ class _DonatePageState extends State<DonatePage> {
                     child: TextFormField(
                       autofocus: false,
                       decoration: InputDecoration(
-                          labelText: "Preffered Time",
-                          hintText: 'Enter Pickup Time',
+                          labelText: "Hora de recogida",
+                          hintText: 'Introduzca la hora de recogida',
                           contentPadding:
                               EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(32.0))),
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return "Pickup time cannot be empty";
+                          return "La hora de recogida no puede estar vacía";
                         }
                         return null;
                       },
@@ -125,15 +125,15 @@ class _DonatePageState extends State<DonatePage> {
                       keyboardType: TextInputType.datetime,
                       autofocus: false,
                       decoration: InputDecoration(
-                          labelText: "Pickup day",
-                          hintText: 'Enter day',
+                          labelText: "Día de recogida",
+                          hintText: 'Introduzca el día',
                           contentPadding:
                               EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(32.0))),
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return "Day cannot be empty";
+                          return "El día no puede estar vacío";
                         }
                         return null;
                       },
@@ -146,14 +146,14 @@ class _DonatePageState extends State<DonatePage> {
                     padding: const EdgeInsets.only(left: 20),
                     child: Container(
                       width: MediaQuery.of(context).size.width,
-                      child: Text("Quantity:- " +
+                      child: Text("Cantidad:- " +
                           _currentSliderValue.round().toString() +
-                          " persons"),
+                          " Personas"),
                     ),
                   ),
                   Slider(
                     value: _currentSliderValue,
-                    min: 20,
+                    min: 10,
                     max: 300,
                     divisions: 280,
                     label: _currentSliderValue.round().toString(),
@@ -169,13 +169,13 @@ class _DonatePageState extends State<DonatePage> {
                       Padding(
                         padding: const EdgeInsets.only(left: 10),
                         child: Container(
-                          child: Text("Min: 20"),
+                          child: Text("Minimo: 10"),
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(right: 10),
                         child: Container(
-                          child: Text("Max: 300"),
+                          child: Text("Maximo: 300"),
                         ),
                       )
                     ],
@@ -198,7 +198,7 @@ class _DonatePageState extends State<DonatePage> {
                                       color: Colors.white,
                                     )
                                   : Text(
-                                      "Submit",
+                                      "Enviar",
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontWeight: FontWeight.bold,

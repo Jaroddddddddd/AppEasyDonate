@@ -44,7 +44,7 @@ class _JoinUsState extends State<JoinUs> {
                 height: 100,
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "Join NGO to Help ",
+                  "Únete a una ONG para ayudar",
                   style: TextStyle(
                     color: Color(0xFFF9A826),
                     fontSize: 30,
@@ -67,15 +67,15 @@ class _JoinUsState extends State<JoinUs> {
                       autofocus: false,
                       decoration: InputDecoration(
                         
-                          labelText: "Name",
-                          hintText: 'Enter Name',
+                          labelText: "Nombre",
+                          hintText: 'Introduzca su Nombre',
                           contentPadding:
                               EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(32.0))),
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return "Name cannot be empty";
+                          return "El nombre no puede estar vacío";
                         }
                         return null;
                       },
@@ -86,15 +86,15 @@ class _JoinUsState extends State<JoinUs> {
                     child: TextFormField(
                       autofocus: false,
                       decoration: InputDecoration(
-                          labelText: "Contact",
-                          hintText: 'Enter Contact',
+                          labelText: "Número de Contacto",
+                          hintText: 'Introduzca su número de contacto',
                           contentPadding:
                               EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(32.0))),
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return "Contact cannot be empty";
+                          return "El contacto no puede estar vacío";
                         }
                         return null;
                       },
@@ -107,15 +107,15 @@ class _JoinUsState extends State<JoinUs> {
                       maxLines: 10,
                       autofocus: false,
                       decoration: InputDecoration(
-                          labelText: "Description",
-                          hintText: 'Tell us about yourself',
+                          labelText: "Descripción",
+                          hintText: 'Cuéntanos acerca de tí',
                           contentPadding:
                               EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(32.0))),
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return "Description cannot be empty";
+                          return "La descripción no puede estar vacía";
                         }
                         return null;
                       },
@@ -143,7 +143,7 @@ class _JoinUsState extends State<JoinUs> {
                                       color: Colors.white,
                                     )
                                   : Text(
-                                      "Submit",
+                                      "Enviar",
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontWeight: FontWeight.bold,

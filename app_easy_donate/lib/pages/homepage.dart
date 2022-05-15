@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
                 child: Container(
                   width: MediaQuery.of(context).size.width,
                   child: Text(
-                    "Passion For Giving",
+                    "App Easy Donate",
                     style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> {
               child: Container(
                 width: MediaQuery.of(context).size.width,
                 child: Text(
-                  "Choose any one",
+                  "Pasión por Ayudar",
                   style: TextStyle(
                       color: Colors.grey,
                       fontSize: 15.0,
@@ -89,12 +89,12 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         Text(
-                          "Donate",
+                          "Donar",
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 17),
                         ),
                         Text(
-                          "Donate to NGO",
+                          "Donar a una ONG",
                           style: TextStyle(
                               fontSize: 12,
                               color: Colors.grey,
@@ -118,12 +118,12 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         Text(
-                          "Help Us",
+                          "Solicitar Ayuda",
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 17),
                         ),
                         Text(
-                          "Need help from NGO",
+                          "Necesito ayuda de una ONG",
                           style: TextStyle(
                               fontSize: 12,
                               color: Colors.grey,
@@ -131,6 +131,38 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ],
                     ),
+
+                    Column(
+                      children: [
+                        InkWell(
+                          onTap: () => {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => DonatePage()))
+                          },
+                          child: CircleAvatar(
+                            backgroundColor: Colors.transparent,
+                            radius: 50,
+                            backgroundImage: AssetImage('assets/donateme.png'),
+                          ),
+                        ),
+                        Text(
+                          "Mis Donaciones",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 17),
+                        ),
+                        Text(
+                          "Mis donaciones a una ONG",
+                          style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.grey,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+
+
                   ],
                 ),
               ),
@@ -155,7 +187,7 @@ class _HomePageState extends State<HomePage> {
             width: MediaQuery.of(context).size.width,
             child: Center(
                 child: Text(
-              "Join NGO To Help",
+              "Únase a la ONG para ayudar",
               style: TextStyle(
                 fontSize: 20,
                 color: Colors.white,

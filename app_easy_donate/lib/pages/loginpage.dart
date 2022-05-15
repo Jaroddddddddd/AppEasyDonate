@@ -47,7 +47,7 @@ class _LoginPageState extends State<LoginPage> {
                     height: 25.0,
                   ),
                   Text(
-                    "Sign in NGO App",
+                    "Iniciar sesión en App Easy Donate",
                     style: TextStyle(
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
@@ -59,12 +59,12 @@ class _LoginPageState extends State<LoginPage> {
                       children: [
                         TextFormField(
                           decoration: InputDecoration(
-                            hintText:"Enter Username",
-                            labelText: "Username",
+                            hintText:"Introduzca su nombre de usuario",
+                            labelText: "Nombre de usuario",
                           ),
                           validator: (value) {
                             if(value!.isEmpty){
-                              return "Username can't be empty";
+                              return "El nombre de usuario no puede estar vacío";
                             }
                             return null;
                           },
@@ -77,16 +77,16 @@ class _LoginPageState extends State<LoginPage> {
                         TextFormField(
                           obscureText: true,
                           decoration: InputDecoration(
-                            hintText:"Enter Password",
-                            labelText: "Password",
+                            hintText:"Introducir la contraseña",
+                            labelText: "Contraseña",
                             
                           ),
                           validator: (value) {
                             if(value!.isEmpty){
-                              return "Password can't be empty";
+                              return "La contraseña no puede estar vacía";
                             }
                             else if(value.length<8){
-                              return "Password length should be atleast 8";
+                              return "La longitud de la contraseña debe ser al menos 8 digitos";
                             }
                             return null;
                           },
@@ -109,7 +109,7 @@ class _LoginPageState extends State<LoginPage> {
                           color: Colors.indigoAccent,
                         )
                         : Text(
-                          "Login",
+                          "Entrar",
                           style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,

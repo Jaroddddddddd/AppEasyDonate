@@ -64,6 +64,8 @@ flutter:
       - assets/background.png
       - assets/donate.png
       - assets/help.png
+      - assets/donateme.png
+      - assets/red.png
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
