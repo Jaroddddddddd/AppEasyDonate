@@ -4,6 +4,8 @@ import 'package:app_easy_donate/pages/helpUs.dart';
 import 'package:app_easy_donate/pages/join.dart';
 import 'package:app_easy_donate/utilities/MyRoutes.dart';
 
+import 'donateme.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -139,7 +141,7 @@ class _HomePageState extends State<HomePage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => DonatePage()))
+                                    builder: (context) => DonatemePage()))
                           },
                           child: CircleAvatar(
                             backgroundColor: Colors.transparent,

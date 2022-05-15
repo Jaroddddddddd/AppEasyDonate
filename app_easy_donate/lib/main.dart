@@ -1,3 +1,4 @@
+import 'package:app_easy_donate/pages/donateme.dart';
 import 'package:flutter/material.dart';
 import 'package:app_easy_donate/pages/donatepage.dart';
 import 'package:app_easy_donate/pages/helpUs.dart';
@@ -32,6 +33,7 @@ class _MyAppState extends State<MyApp> {
         MyRoutes.submitRoute: (context) => Submitted(),
         MyRoutes.helpUsRoute: (context) => HelpUs(),
         MyRoutes.JoinUsRoute: (context) => JoinUs(),
+        MyRoutes.donatemeRoute: (context) => DonatemePage(),
       },
     );
   }
