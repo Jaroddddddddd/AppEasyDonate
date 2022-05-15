@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:app_easy_donate/pages/donatepage.dart';
 import 'package:app_easy_donate/pages/helpUs.dart';
-//import 'package:app_easy_donate/pages/join.dart';
+import 'package:app_easy_donate/pages/join.dart';
 import 'package:app_easy_donate/utilities/MyRoutes.dart';
 
 class HomePage extends StatefulWidget {
@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
                   width: MediaQuery.of(context).size.width,
                   child: CircleAvatar(
                     radius: 100,
-                    backgroundImage: AssetImage('assets/icon.jpg'),
+                    backgroundImage: AssetImage('assets/icon.png'),
                   ),
                 ),
               ),
@@ -142,7 +142,7 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-    /*  bottomNavigationBar: InkWell(
+      bottomNavigationBar: InkWell(
         onTap: () {
                             Navigator.push(
                                 context,
@@ -161,7 +161,7 @@ class _HomePageState extends State<HomePage> {
                 color: Colors.white,
               ),
             ))),
-      ),*/
+      ),
     );
   }
 }
