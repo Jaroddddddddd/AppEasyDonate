@@ -86,7 +86,7 @@ class _HomePageState extends State<HomePage> {
                           },
                           child: CircleAvatar(
                             backgroundColor: Colors.transparent,
-                            radius: 50,
+                            radius: 40,
                             backgroundImage: AssetImage('assets/donate.png'),
                           ),
                         ),
@@ -115,7 +115,7 @@ class _HomePageState extends State<HomePage> {
                           },
                           child: CircleAvatar(
                             backgroundColor: Colors.transparent,
-                            radius: 50,
+                            radius: 40,
                             backgroundImage: AssetImage('assets/help.png'),
                           ),
                         ),
@@ -145,7 +145,7 @@ class _HomePageState extends State<HomePage> {
                           },
                           child: CircleAvatar(
                             backgroundColor: Colors.transparent,
-                            radius: 50,
+                            radius: 40,
                             backgroundImage: AssetImage('assets/donateme.png'),
                           ),
                         ),
