@@ -1,3 +1,4 @@
+import 'package:app_easy_donate/pages/solicitud.dart';
 import 'package:flutter/material.dart';
 import 'package:app_easy_donate/pages/donatepage.dart';
 import 'package:app_easy_donate/pages/helpUs.dart';
@@ -193,7 +194,7 @@ class _HomePageState extends State<HomePage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => DonatemePage()))
+                                    builder: (context) => SolicitudPage()))
                           },
                           child: CircleAvatar(
                             backgroundColor: Colors.transparent,

@@ -6,4 +6,6 @@ class MyRoutes {
   static String helpUsRoute = '/helpUs';
   static String JoinUsRoute = '/JoinUs';
   static String donatemeRoute = '/donateme';
+  static String solicitudRoute = '/solicitud';
+  static String detailsSolicitud = '/detailsSolicitud';
 }
