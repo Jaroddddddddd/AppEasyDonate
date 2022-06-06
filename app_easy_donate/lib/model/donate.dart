@@ -5,6 +5,7 @@ class Donate {
   final String alimentos;
   final String direccion;
   final int cantidad;
+  bool read;
 
   Donate({
     required this.id,
@@ -13,5 +14,6 @@ class Donate {
     required this.alimentos,
     required this.direccion,
     required this.cantidad,
+    this.read = false,
   });
 }

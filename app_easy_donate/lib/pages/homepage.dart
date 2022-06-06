@@ -71,70 +71,92 @@ class _HomePageState extends State<HomePage> {
               padding: EdgeInsets.only(top: 20),
               child: Container(
                 width: MediaQuery.of(context).size.width,
-                height: 180,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Column(
-                      children: [
-                        InkWell(
-                          onTap: () => {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => DonatePage()))
-                          },
-                          child: CircleAvatar(
-                            backgroundColor: Colors.transparent,
-                            radius: 40,
-                            backgroundImage: AssetImage('assets/donate.png'),
-                          ),
-                        ),
-                        Text(
-                          "Donar",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 17),
-                        ),
-                        Text(
-                          "Donar a una ONG",
-                          style: TextStyle(
-                              fontSize: 12,
-                              color: Colors.grey,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => HelpUs()));
-                          },
-                          child: CircleAvatar(
-                            backgroundColor: Colors.transparent,
-                            radius: 40,
-                            backgroundImage: AssetImage('assets/help.png'),
-                          ),
-                        ),
-                        Text(
-                          "Solicitar Ayuda",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 17),
-                        ),
-                        Text(
-                          "Necesito ayuda de una ONG",
-                          style: TextStyle(
-                              fontSize: 12,
-                              color: Colors.grey,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
+                height: 20,
+              ),
+            ),
 
+          
+             Row(
+
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Column(
+                  children: [
+                    InkWell(
+                      onTap: () => {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => DonatePage()))
+                      },
+                      child: CircleAvatar(
+                        backgroundColor: Colors.transparent,
+                        radius: 40,
+                        backgroundImage: AssetImage('assets/donate.png'),
+                      ),
+                    ),
+                    Text(
+                      "Donar",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 17),
+                    ),
+                    Text(
+                      "Donar a una ONG",
+                      style: TextStyle(
+                          fontSize: 12,
+                          color: Colors.grey,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+                Column(
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => HelpUs()));
+                      },
+                      child: CircleAvatar(
+                        backgroundColor: Colors.transparent,
+                        radius: 40,
+                        backgroundImage: AssetImage('assets/help.png'),
+                      ),
+                    ),
+                    Text(
+                      "Solicitar Ayuda",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 17),
+                    ),
+                    Text(
+                      "Necesito ayuda de una ONG",
+                      style: TextStyle(
+                          fontSize: 12,
+                          color: Colors.grey,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 20),
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: 20,
+              ),
+            ),
+
+
+            Row(
+                  
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  
+                  children: [
+                    
                     Column(
+                      
                       children: [
                         InkWell(
                           onTap: () => {
@@ -164,11 +186,47 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
 
+                    Column(
+                      children: [
+                        InkWell(
+                          onTap: () => {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => DonatemePage()))
+                          },
+                          child: CircleAvatar(
+                            backgroundColor: Colors.transparent,
+                            radius: 40,
+                            backgroundImage: AssetImage('assets/donateme.png'),
+                          ),
+                        ),
+                        Text(
+                          "Mis Solicitudes",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 17),
+                        ),
+                        Text(
+                          "Mis solicitudes a una ONG",
+                          style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.grey,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
 
                   ],
-                ),
-              ),
-            ),
+                  ),
+  
+               
+                    
+
+
+                  
+                
+              
+    
             Container(
                 height: 208,
                 width: 200,

@@ -1,3 +1,4 @@
+import 'package:app_easy_donate/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:app_easy_donate/utilities/MyRoutes.dart';
 
@@ -31,27 +32,26 @@ class _JoinUsState extends State<JoinUs> {
   Widget build(BuildContext context) {
     return Scaffold(
        backgroundColor: Colors.white,
-      appBar: AppBar(backgroundColor: Colors.white, elevation: 0,
-      iconTheme: IconThemeData(color: Colors.black),
+      appBar: AppBar(
+        title: const Text('Únete a una ONG para ayudar', style: TextStyle(
+          color: primaryColor,
+          fontSize: 30,
+          fontWeight: FontWeight.bold
+          )
+          ),
+        
+        backgroundColor: Colors.white, elevation: 0,
+        iconTheme: IconThemeData(color: Colors.black),
+        
+      
+      
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
             Padding(
               padding: const EdgeInsets.only(top: 0, left: 20),
-              child: Container(
-                width: MediaQuery.of(context).size.width,
-                height: 100,
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Únete a una ONG para ayudar",
-                  style: TextStyle(
-                    color: Color(0xFFF9A826),
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
+          
             ),
             SizedBox(
               height: 30,

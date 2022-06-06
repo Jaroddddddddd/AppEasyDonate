@@ -3,10 +3,11 @@ import 'package:app_easy_donate/model/backend.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:app_easy_donate/utilities/MyRoutes.dart';
-
+import '../constants.dart';
 import '../model/backend.dart';
 import '../widget/DonatemeWidget.dart';
-
+import '../constants.dart';
+import 'join.dart';
 
 List<Donate> donates=Backend().getDonates();
 
@@ -35,6 +36,25 @@ class _DonatemePageState extends State<DonatemePage> {
     }
   }
 
+var donates = Backend().getDonates();
+
+  void markEmailAsRead(int id) {
+    Backend().markDonatesAsRead(id);
+    setState(() {
+      donates = Backend().getDonates();
+    });
+  }
+
+  void deleteEmail(int id) {
+    Backend().deleteDonates(id);
+    setState(() {
+      donates = Backend().getDonates();
+    });
+  }
+
+  
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,8 +62,9 @@ class _DonatemePageState extends State<DonatemePage> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text('Mis Donaciones', style: TextStyle(
-          color: Color(0xFFF9A826),
+          color: primaryColor,
           fontSize: 30,
+          fontWeight: FontWeight.bold
           )
           ),
         
@@ -55,28 +76,31 @@ class _DonatemePageState extends State<DonatemePage> {
       ),
       
         
-
-      body: 
-
-    
       
-      ListView.separated(
-        
+      body: (
       
-                
-        itemCount:donates.length,
-        separatorBuilder: (BuildContext context, int index) => const Divider(
-          indent: 40.0,
-          endIndent: 20.0,
-
-        ),
-        itemBuilder: (BuildContext context, int index) => DonatemeWidget(
-          donate: donates[index], 
-
+        ListView.separated(
+          itemCount: donates.length,
+          separatorBuilder: (BuildContext context, int index) => const Divider(
+            color: primaryColor,
+            indent: 40.0,
+            endIndent: 20.0,
           ),
-      ),
-      
+          itemBuilder: (BuildContext context, int index) => DonatemeWidget(
+            donate: donates[index],
+            //onTap: showDetail,
+            onLongPress: markEmailAsRead,
+            onSwipe: deleteEmail,
+            
+            ),
+
         
-    );
+        
+        )
+        ),
+        );
+     
+        
+   
   }
 }

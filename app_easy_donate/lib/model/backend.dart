@@ -37,7 +37,7 @@ class Backend {
       cantidad: 60
     ),
     Donate(
-      id: 1,
+      id: 4,
       date: '2022 - 02 - 15',
       time: '14h: 00',
       alimentos: 'Saco de arroz 50Kg',
@@ -45,7 +45,7 @@ class Backend {
       cantidad: 20
     ),
         Donate(
-      id: 1,
+      id: 5,
       date: '2022 - 01 - 20',
       time: '10h: 30',
       alimentos: 'Latas de Átun 400g',
@@ -53,7 +53,7 @@ class Backend {
       cantidad: 60
     ),
     Donate(
-      id: 1,
+      id: 6,
       date: '2022 - 02 - 15',
       time: '14h: 00',
       alimentos: 'Saco de arroz 50Kg',
@@ -61,7 +61,7 @@ class Backend {
       cantidad: 20
     ),
         Donate(
-      id: 1,
+      id: 7,
       date: '2022 - 01 - 20',
       time: '10h: 30',
       alimentos: 'Latas de Átun 400g',
@@ -69,7 +69,7 @@ class Backend {
       cantidad: 60
     ),
     Donate(
-      id: 1,
+      id: 8,
       date: '2022 - 02 - 15',
       time: '14h: 00',
       alimentos: 'Saco de arroz 50Kg',
@@ -86,14 +86,16 @@ class Backend {
   /// Public API starts here :)
   ///
 
-  /// Returns all emails.
   List<Donate> getDonates() {
     return _donates;
   }
 
+  void markDonatesAsRead(int id) {
+    final index = _donates.indexWhere((donate) => donate.id == id);
+    _donates[index].read = true;
+  }
 
-  /// Deletes email identified by its id.
-  void deleteEmail(int id) {
+  void deleteDonates(int id) {
     _donates.removeWhere((email) => email.id == id);
   }
 }

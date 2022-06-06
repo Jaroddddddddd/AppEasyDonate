@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:app_easy_donate/utilities/MyRoutes.dart';
-
+import '../constants.dart';
 class DonatePage extends StatefulWidget {
   @override
   State<DonatePage> createState() => _DonatePageState();
@@ -31,27 +31,26 @@ class _DonatePageState extends State<DonatePage> {
   Widget build(BuildContext context) {
     return Scaffold(
        backgroundColor: Colors.white,
-      appBar: AppBar(backgroundColor: Colors.white, elevation: 0,
-      iconTheme: IconThemeData(color: Colors.black),
+      appBar: AppBar(
+        title: const Text('Donación de Comida', style: TextStyle(
+          color: primaryColor,
+          fontSize: 30,
+          fontWeight: FontWeight.bold
+          )
+          ),
+        
+        backgroundColor: Colors.white, elevation: 0,
+        iconTheme: IconThemeData(color: Colors.black),
+        
+      
+      
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
             Padding(
               padding: const EdgeInsets.only(top: 0, left: 20),
-              child: Container(
-                width: MediaQuery.of(context).size.width,
-                height: 100,
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Donación de Comida",
-                  style: TextStyle(
-                    color: Color(0xFFF9A826),
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
+              
             ),
             SizedBox(
               height: 30,
@@ -207,7 +206,8 @@ class _DonatePageState extends State<DonatePage> {
                             ),
                           ),
                         
-              )],
+              ),
+              ],
               ),
             ),
           ],
