@@ -8,4 +8,5 @@ class MyRoutes {
   static String donatemeRoute = '/donateme';
   static String solicitudRoute = '/solicitud';
   static String detailsSolicitud = '/detailsSolicitud';
+  static String registerRoute = '/register';
 }

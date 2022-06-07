@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:app_easy_donate/utilities/MyRoutes.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({ Key? key }) : super(key: key);
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({ Key? key }) : super(key: key);
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterPageState extends State<RegisterPage> {
 
   bool changeButton=false;
 
   final _formkey = GlobalKey<FormState>();
 
-  movetoHome(BuildContext context) async{
+  movetologin(BuildContext context) async{
     if(_formkey.currentState!.validate()){
       setState(() {
                         changeButton=true;
                       });
                     await Future.delayed(Duration(seconds: 1));
-                    await Navigator.pushNamed(context, MyRoutes.homeRoute);
+                    await Navigator.pushNamed(context, MyRoutes.loginRoute);
                     setState(() {
                         changeButton=false;
                       });
@@ -47,24 +47,42 @@ class _LoginPageState extends State<LoginPage> {
                     height: 25.0,
                   ),
                   Text(
-                    "Iniciar sesión en App Easy Donate",
+                    "Registro en App Easy Donate",
                     style: TextStyle(
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
                     )
                   ),
+                 
                   Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: Column(
                       children: [
                         TextFormField(
                           decoration: InputDecoration(
-                            hintText:"Introduzca su nombre de usuario",
-                            labelText: "Nombre de usuario",
+                             hintText: 'correo@gmail.com',
+                             labelText: 'Correo electronico',
                           ),
                           validator: (value) {
                             if(value!.isEmpty){
-                              return "El nombre de usuario no puede estar vacío";
+                              return "correo incorrecto";
+                            }
+                            return null;
+                          },
+                          onChanged: (value) {
+                            setState(() {
+                              
+                            });
+                          },
+                        ),
+                        TextFormField(
+                          decoration: InputDecoration(
+                             hintText: 'usuario01',
+                             labelText: 'Ingresar Usuario',
+                          ),
+                          validator: (value) {
+                            if(value!.isEmpty){
+                              return "usuario Incorrecto";
                             }
                             return null;
                           },
@@ -94,11 +112,12 @@ class _LoginPageState extends State<LoginPage> {
                       ],
                     ),
                   ),
+                  
                   SizedBox(
                     height: 15.0,
                   ),
                   InkWell(
-                    onTap: () => movetoHome(context),
+                    onTap: () => movetologin(context),
                     child: AnimatedContainer(
                       duration: Duration(seconds: 1),
                       width: changeButton? 50 :150,
@@ -109,12 +128,15 @@ class _LoginPageState extends State<LoginPage> {
                           color: Colors.indigoAccent,
                         )
                         : Text(
-                          "Entrar",
+                          "Registrarse",
+                          
                           style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
                             fontSize: 18),
+                            
                           ),
+                          
                        
                           decoration: BoxDecoration(
                             color: changeButton?Colors.transparent:Colors.indigoAccent,
@@ -122,13 +144,13 @@ class _LoginPageState extends State<LoginPage> {
                           ), 
                     ),
                   ),
-                  TextButton(
+                   TextButton(
                 //Estilo boton
                 style: ButtonStyle(
                     overlayColor: MaterialStateProperty.all(Colors.indigo[300]),
                     shape: MaterialStateProperty.all(const StadiumBorder())),
                 child: const Text(
-                  'Crear una nueva cuenta',
+                  '¿Ya tienes una cuenta?',
                   //Estilo texto
                   style: TextStyle(
                     color: Colors.black87,
@@ -138,12 +160,11 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 onPressed: () => Navigator.pushReplacementNamed(
                   context,
-                  '/register',
+                  '/login',
                 ),
               ),
                   
                 ],
-                
               ),
             ),
           ),
