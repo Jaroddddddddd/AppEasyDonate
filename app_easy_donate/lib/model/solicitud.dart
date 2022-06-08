@@ -3,6 +3,7 @@ class Solicitud {
   final String nombre;
   final String direccion;
   final String descripcion;
+  final String image;
   bool read;
 
   Solicitud({
@@ -10,6 +11,7 @@ class Solicitud {
     required this.nombre,
     required this.direccion,
     required this.descripcion,
+    required this.image,
     this.read = false,
   });
 }

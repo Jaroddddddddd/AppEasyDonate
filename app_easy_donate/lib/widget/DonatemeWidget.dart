@@ -2,6 +2,7 @@ import 'dart:math';
 import 'package:app_easy_donate/constants.dart';
 import 'package:flutter/material.dart';
 
+
 import '../model/donate.dart';
 import '../model/backend.dart';
 
@@ -64,7 +65,13 @@ class DonatemeWidget extends StatelessWidget {
                   ],
                 ),
               ),
-              
+               Container(
+              padding: const EdgeInsets.all(15.0),
+              child: Image.asset(
+                donate.image,
+                
+              )
+               ),
           ],
         ),
       ),

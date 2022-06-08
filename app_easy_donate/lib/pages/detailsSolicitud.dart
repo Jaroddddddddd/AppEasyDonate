@@ -24,6 +24,7 @@ class DetailsSolicitud extends StatelessWidget {
       
       
       ),
+      
         body: Container(
           padding: const EdgeInsets.all(20.0),
           child: Column(

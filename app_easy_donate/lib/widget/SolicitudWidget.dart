@@ -65,7 +65,14 @@ class SolicitudesWidget extends StatelessWidget {
                   ],
                 ),
               ),
-              
+              Container(
+              padding: const EdgeInsets.all(15.0),
+              child: Image.asset(
+              solicitud.image,
+              height: 145.0,
+                
+              )
+               ),
           ],
         ),
       ),

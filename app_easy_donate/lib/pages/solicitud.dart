@@ -100,6 +100,7 @@ var solicitudes = Backend().getSolicitudes();
             onSwipe: deleteSolicitudes,
             
             ),
+            
 
         
         
