@@ -41,16 +41,18 @@ class DonatemeWidget extends StatelessWidget {
       onTap: () {
         //onTap(donate);
       },
+      child: SingleChildScrollView( 
       child: Container(
-        padding: const EdgeInsets.all(10.0),
-        height: 131.0,
+        padding: const EdgeInsets.all(8.0),
+      
+      
         child: Row(
           children: [
             Padding(
-              padding: EdgeInsets.all(15.0)
+              padding: EdgeInsets.all(18.0)
               ),
               Expanded(
-                flex: 9,
+                flex: 7,
 
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -66,16 +68,18 @@ class DonatemeWidget extends StatelessWidget {
                 ),
               ),
                Container(
-              padding: const EdgeInsets.all(15.0),
+              padding: const EdgeInsets.all(8.0),
               child: Image.asset(
                 donate.image,
+                height: 50.0,
+               
                 
               )
                ),
           ],
         ),
       ),
-    
+      ),
     );
   }
 }

@@ -96,7 +96,24 @@ class _RegisterPageState extends State<RegisterPage> {
                           obscureText: true,
                           decoration: InputDecoration(
                             hintText:"Introducir la contraseña",
-                            labelText: "Contraseña",
+                            labelText: "ingresar Contraseña",
+                            
+                          ),
+                          validator: (value) {
+                            if(value!.isEmpty){
+                              return "La contraseña no puede estar vacía";
+                            }
+                            else if(value.length<8){
+                              return "La longitud de la contraseña debe ser al menos 8 digitos";
+                            }
+                            return null;
+                          },
+                        ),
+                         TextFormField(
+                          obscureText: true,
+                          decoration: InputDecoration(
+                            hintText:"Introduzca la contraseña nuevamnete",
+                            labelText: "Confirmar Contraseña",
                             
                           ),
                           validator: (value) {
