@@ -82,18 +82,40 @@ class _DonatePageState extends State<DonatePage> {
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: TextFormField(
+                      child: TextFormField(
                       autofocus: false,
                       decoration: InputDecoration(
-                          labelText: "Alimentos",
-                          hintText: 'Introduzca los alimentos',
+                          labelText: "Tipo de Donación",
+                          hintText: 'Alimentos, Ropa, Juguetes',
                           contentPadding:
                               EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(32.0))),
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return "Los artículos de comida no pueden estar vacíos";
+                          return "Los artículos no pueden estar vacíos";
+                        }
+                        return null;
+                      },
+                    ),
+                  ),
+                  
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextFormField(
+                      keyboardType: TextInputType.multiline,
+                      maxLines: 10,
+                      autofocus: false,
+                      decoration: InputDecoration(
+                          labelText: "Descripción",
+                          hintText: 'Introduzca la descripción de la donación',
+                          contentPadding:
+                              EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(32.0))),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "La descripción de la Donación no pueden estar vacía";
                         }
                         return null;
                       },

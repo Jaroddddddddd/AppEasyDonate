@@ -1,25 +1,30 @@
-import 'package:app_easy_donate/model/solicitud.dart';
+
+import 'package:app_easy_donate/model/donate.dart';
 import 'package:app_easy_donate/model/backend.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:app_easy_donate/utilities/MyRoutes.dart';
 import '../constants.dart';
 import '../model/backend.dart';
-import '../widget/SolicitudWidget.dart';
+import '../widget/DonatemeWidget.dart';
 import '../constants.dart';
-import 'detailsSolicitud.dart';
+import 'detailsDonate.dart';
+import 'detailsDonateONG.dart';
 import 'join.dart';
 
-List<Solicitud> solicitudes=Backend().getSolicitudes();
+List<Donate> donates=Backend().getDonates();
 
-class SolicitudPage extends StatefulWidget {
+class DonatemePageONG extends StatefulWidget {
+
+  const DonatemePageONG({Key? key, }) : super(key: key);
   @override
-  State<SolicitudPage> createState() => _SolicitudPageState();
+  State<DonatemePageONG> createState() => _DonatemePageStateONG();
 }
 
-class _SolicitudPageState extends State<SolicitudPage> {
+class _DonatemePageStateONG extends State<DonatemePageONG> {
   // const DonatePage({Key? key}) : super(key: key);
   bool changeButton = false;
+  
   final _formKey = GlobalKey<FormState>();
 
   double _currentSliderValue = 10;
@@ -37,39 +42,41 @@ class _SolicitudPageState extends State<SolicitudPage> {
     }
   }
 
-var solicitudes = Backend().getSolicitudes();
+var donates = Backend().getDonates();
 
-  void markSolicitudesAsRead(int id) {
-    Backend().markSolicitudesAsRead(id);
+  void markEmailAsRead(int id) {
+    Backend().markDonatesAsRead(id);
     setState(() {
-      solicitudes = Backend().getSolicitudes();
+      donates = Backend().getDonates();
     });
   }
 
-  void deleteSolicitudes(int id) {
-    Backend().deleteSolicitudes(id);
+  void deleteEmail(int id) {
+    Backend().deleteDonates(id);
     setState(() {
-      solicitudes = Backend().getSolicitudes();
+      donates = Backend().getDonates();
     });
   }
 
-  void showDetail(Solicitud solicitud) {
+  void showDetail(Donate donate) {
     Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return DetailsSolicitud(solicitud: solicitud);
+      return DetailsDonateONG(donate: donate);
     }));
 
-    Backend().markSolicitudesAsRead(solicitud.id);
+    Backend().markSolicitudesAsRead(donate.id);
     setState(() {
-      solicitudes = Backend().getSolicitudes();
+      donates = Backend().getDonates();
     });
   }
 
-  static const _myTabs = <Tab>[
+   static const _myTabs = <Tab>[
     Tab(text: 'Peticiones'),
     Tab(text: 'Aprobadas'),
   ];
 
-Widget build(BuildContext context) => 
+
+  @override
+   Widget build(BuildContext context) => 
    
    DefaultTabController(
         length: _myTabs.length,
@@ -79,7 +86,7 @@ Widget build(BuildContext context) =>
             slivers: [
               const SliverAppBar(
                 backgroundColor: primaryColor,
-                title: Text("Mis Solicitudes", style:TextStyle(
+                title: Text("Gestión de Donaciones", style:TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold
                 )),
@@ -90,37 +97,34 @@ Widget build(BuildContext context) =>
                 child: TabBarView(
                   children: [
                     ListView.separated(
-                      itemCount: solicitudes.length,
+                      itemCount: donates.length,
                       separatorBuilder: (BuildContext context, int index) => const Divider(
                         color: primaryColor,
                         indent: 40.0,
                         endIndent: 20.0,
                       ),
-                      itemBuilder: (BuildContext context, int index) => SolicitudesWidget(
-                        solicitud: solicitudes[index],
+                      itemBuilder: (BuildContext context, int index) => DonatemeWidget(
+                        
+                        
+                        donate: donates[index],
                         onTap: showDetail,
-                        onLongPress: markSolicitudesAsRead,
-                        onSwipe: deleteSolicitudes,
+                        onLongPress: markEmailAsRead,
+                        onSwipe: deleteEmail,
                         ),
                     ),
                     ListView.separated(
-                      itemCount: solicitudes.length,
+                      itemCount: donates.length,
                       separatorBuilder: (BuildContext context, int index) => const Divider(
                         color: primaryColor,
                         indent: 40.0,
                         endIndent: 20.0,
                       ),
-                      itemBuilder: (BuildContext context, int index) => SolicitudesWidget(
-                        solicitud: solicitudes[index],
+                      itemBuilder: (BuildContext context, int index) => DonatemeWidget(
+                        donate: donates[index],
                         onTap: showDetail,
-                        onLongPress: markSolicitudesAsRead,
-                        onSwipe: deleteSolicitudes,
-                        
+                        onLongPress: markEmailAsRead,
+                        onSwipe: deleteEmail,
                         ),
-                        
-
-                    
-                    
                     )
                   ],
                 ),
@@ -129,4 +133,4 @@ Widget build(BuildContext context) =>
           ),
         ),
    );
-}
+  }

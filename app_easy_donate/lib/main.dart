@@ -1,4 +1,5 @@
 import 'package:app_easy_donate/pages/donateme.dart';
+import 'package:app_easy_donate/pages/homeONG.dart';
 import 'package:app_easy_donate/pages/registerpage.dart';
 import 'package:flutter/material.dart';
 import 'package:app_easy_donate/pages/donatepage.dart';
@@ -29,6 +30,7 @@ class _MyAppState extends State<MyApp> {
       initialRoute: MyRoutes.loginRoute,
       routes: {
         MyRoutes.homeRoute: (context) => const HomePage(),
+        MyRoutes.homeONG: (context) => const HomeONG(),
         MyRoutes.registerRoute: ((context) => const RegisterPage()),
         MyRoutes.loginRoute: (context) => const LoginPage(),
         MyRoutes.donateRoute: (context) => DonatePage(),

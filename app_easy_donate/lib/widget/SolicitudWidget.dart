@@ -40,15 +40,7 @@ class SolicitudesWidget extends StatelessWidget {
         height: 70,
         child: Row(
           children: [
-            Expanded(
-              flex: 1,
-              child: Container(
-                height: 12.0,
-                decoration: BoxDecoration(
-                    color: solicitud.read ? Colors.transparent : primaryColor,
-                    shape: BoxShape.circle),
-              ),
-            ),
+         
             Padding(
               padding: EdgeInsets.all(15.0)
               ),

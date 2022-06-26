@@ -8,16 +8,17 @@ import '../model/backend.dart';
 import '../widget/SolicitudWidget.dart';
 import '../constants.dart';
 import 'detailsSolicitud.dart';
+import 'detailsSolicitudONG.dart';
 import 'join.dart';
 
 List<Solicitud> solicitudes=Backend().getSolicitudes();
 
-class SolicitudPage extends StatefulWidget {
+class SolicitudPageONG extends StatefulWidget {
   @override
-  State<SolicitudPage> createState() => _SolicitudPageState();
+  State<SolicitudPageONG> createState() => _SolicitudPageONGState();
 }
 
-class _SolicitudPageState extends State<SolicitudPage> {
+class _SolicitudPageONGState extends State<SolicitudPageONG> {
   // const DonatePage({Key? key}) : super(key: key);
   bool changeButton = false;
   final _formKey = GlobalKey<FormState>();
@@ -55,7 +56,7 @@ var solicitudes = Backend().getSolicitudes();
 
   void showDetail(Solicitud solicitud) {
     Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return DetailsSolicitud(solicitud: solicitud);
+      return DetailsSolicitudONG(solicitud: solicitud);
     }));
 
     Backend().markSolicitudesAsRead(solicitud.id);
@@ -79,7 +80,7 @@ Widget build(BuildContext context) =>
             slivers: [
               const SliverAppBar(
                 backgroundColor: primaryColor,
-                title: Text("Mis Solicitudes", style:TextStyle(
+                title: Text("Gestión de Solicitudes", style:TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold
                 )),

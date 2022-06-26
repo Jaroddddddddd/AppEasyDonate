@@ -1,3 +1,4 @@
+import 'package:app_easy_donate/pages/homeONG.dart';
 import 'package:flutter/material.dart';
 import 'package:app_easy_donate/utilities/MyRoutes.dart';
 
@@ -26,6 +27,8 @@ class _LoginPageState extends State<LoginPage> {
                       });
     }
   }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -122,6 +125,30 @@ class _LoginPageState extends State<LoginPage> {
                           ), 
                     ),
                   ),
+
+
+
+                  TextButton(
+                //Estilo boton
+                style: ButtonStyle(
+                    overlayColor: MaterialStateProperty.all(Colors.indigo[300]),
+                    shape: MaterialStateProperty.all(const StadiumBorder())),
+                child: const Text(
+                  'Entrar como ONG',
+                  //Estilo texto
+                  style: TextStyle(
+                    color: Colors.black87,
+                    fontSize: 18.0,
+                    //fontWeight: FontWeight.bold,
+                  ),
+                ),
+               onPressed: () => Navigator.pushReplacementNamed(
+                  context,
+                  '/homeONG',
+                ),
+              ),
+
+
                   TextButton(
                 //Estilo boton
                 style: ButtonStyle(

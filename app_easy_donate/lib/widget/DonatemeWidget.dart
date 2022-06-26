@@ -9,7 +9,7 @@ import '../model/backend.dart';
 
 class DonatemeWidget extends StatelessWidget {
    final Donate donate;
-   //final Function onTap;
+   final Function onTap;
    final Function onSwipe;
    final Function onLongPress;
 
@@ -17,7 +17,7 @@ class DonatemeWidget extends StatelessWidget {
   const DonatemeWidget({
     Key? key,
     required this.donate, 
-    //required this.onTap,
+    required this.onTap,
     required this.onSwipe,
     required this.onLongPress
 
@@ -39,7 +39,7 @@ class DonatemeWidget extends StatelessWidget {
         onLongPress(donate.id);
       },
       onTap: () {
-        //onTap(donate);
+        onTap(donate);
       },
       child: SingleChildScrollView( 
       child: Container(
@@ -60,9 +60,10 @@ class DonatemeWidget extends StatelessWidget {
                   children: [
                     Text(donate.date.toString(), style: fromTextStyle,),
                     Text(donate.time.toString(), style: bodyTextStyle, ),
-                    Text(donate.alimentos, style: alimentosTextStyle,),
+                    Text(donate.tipodonation, style: alimentosTextStyle,),
                     Text(donate.direccion, style: bodyTextStyle),
                     Text('Cantidad: '+donate.cantidad.toString(), style: bodyTextStyle),
+                        
 
                   ],
                 ),
