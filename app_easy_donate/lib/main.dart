@@ -10,9 +10,16 @@ import 'package:app_easy_donate/pages/loginpage.dart';
 import 'package:app_easy_donate/pages/submit.dart';
 import 'package:app_easy_donate/utilities/MyRoutes.dart';
 import 'package:flutter/services.dart';
+import 'firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main()  async{
+WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+  options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(MyApp());
+
 }
 
 class MyApp extends StatefulWidget {
