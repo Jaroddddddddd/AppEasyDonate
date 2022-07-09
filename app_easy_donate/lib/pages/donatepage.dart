@@ -2,13 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:app_easy_donate/utilities/MyRoutes.dart';
 import '../constants.dart';
+import 'package:firebase_database/firebase_database.dart';
 class DonatePage extends StatefulWidget {
+  
+
+
   @override
   State<DonatePage> createState() => _DonatePageState();
 }
 
 class _DonatePageState extends State<DonatePage> {
   // const DonatePage({Key? key}) : super(key: key);
+
+  final TextEditingController _direccionController = TextEditingController();
+  final TextEditingController _tipoController = TextEditingController();
+  final TextEditingController _descripcionController = TextEditingController();
+  final TextEditingController _horaController = TextEditingController();
+  final TextEditingController _diaController = TextEditingController();
+  final TextEditingController _cantidadController = TextEditingController();
+
+
   bool changeButton = false;
   final _formKey = GlobalKey<FormState>();
 
@@ -61,9 +74,12 @@ class _DonatePageState extends State<DonatePage> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: TextFormField(
+                    child: 
+                    TextFormField(
+                      
                       keyboardType: TextInputType.streetAddress,
                       autofocus: false,
+                      controller: _direccionController,
                       decoration: InputDecoration(
                         
                           labelText: "Recoger en (Dirección)",
@@ -84,6 +100,7 @@ class _DonatePageState extends State<DonatePage> {
                     padding: const EdgeInsets.all(8.0),
                       child: TextFormField(
                       autofocus: false,
+                      controller: _tipoController,
                       decoration: InputDecoration(
                           labelText: "Tipo de Donación",
                           hintText: 'Alimentos, Ropa, Juguetes',
@@ -106,6 +123,7 @@ class _DonatePageState extends State<DonatePage> {
                       keyboardType: TextInputType.multiline,
                       maxLines: 10,
                       autofocus: false,
+                      controller: _descripcionController,
                       decoration: InputDecoration(
                           labelText: "Descripción",
                           hintText: 'Introduzca la descripción de la donación',
@@ -125,6 +143,7 @@ class _DonatePageState extends State<DonatePage> {
                     padding: const EdgeInsets.all(8.0),
                     child: TextFormField(
                       autofocus: false,
+                      controller: _horaController,
                       decoration: InputDecoration(
                           labelText: "Hora de recogida",
                           hintText: 'Introduzca la hora de recogida',
@@ -145,6 +164,7 @@ class _DonatePageState extends State<DonatePage> {
                     child: TextFormField(
                       keyboardType: TextInputType.datetime,
                       autofocus: false,
+                      controller: _diaController,
                       decoration: InputDecoration(
                           labelText: "Día de recogida",
                           hintText: 'Introduzca el día',
@@ -160,54 +180,67 @@ class _DonatePageState extends State<DonatePage> {
                       },
                     ),
                   ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20),
-                    child: Container(
-                      width: MediaQuery.of(context).size.width,
-                      child: Text("Cantidad:- " +
-                          _currentSliderValue.round().toString() +
-                          " Personas"),
+                  
+                   Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextFormField(
+                      keyboardType: TextInputType.datetime,
+                      autofocus: false,
+                      controller: _cantidadController,
+                      decoration: InputDecoration(
+                          labelText: "Cantidad de Articulos",
+                          hintText: 'Introduzca la cantidad de articulos',
+                          contentPadding:
+                              EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(32.0))),
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return "La cantidad no puede estar vacío";
+                        }
+                        return null;
+                      },
                     ),
                   ),
-                  Slider(
-                    value: _currentSliderValue,
-                    min: 10,
-                    max: 300,
-                    divisions: 280,
-                    label: _currentSliderValue.round().toString(),
-                    onChanged: (double value) {
-                      setState(() {
-                        _currentSliderValue = value;
-                      });
-                    },
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 10),
-                        child: Container(
-                          child: Text("Minimo: 10"),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 10),
-                        child: Container(
-                          child: Text("Maximo: 300"),
-                        ),
-                      )
-                    ],
-                  ),
+                 
                   SizedBox(height: 20,),
                   Material(
                           color: Color(0xFFF9A826),
                           borderRadius:
                               BorderRadius.circular(changeButton ? 50 : 8),
                           child: InkWell(
-                            onTap: () => moveToSubmit(context),
+                            onTap: () async{
+
+                              if(_formKey.currentState!.validate()){
+                                bool respuesta = await saveDonationes(
+                                  _direccionController.text,
+                                  _tipoController.text,
+                                  _descripcionController.text,
+                                  _horaController.text,
+                                  _diaController.text,
+                                  _cantidadController.text,
+                                );
+
+                                if(respuesta){
+                                  Navigator.pop(context);
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                      content: Text('Donacion agregada correctamente'),
+                                      backgroundColor: Colors.green,
+                                      )
+                                  );
+
+                                } else {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                      content: Text('Algo salió mal!!!'),
+                                      backgroundColor: Colors.red,
+                                      ),
+                                  );
+                                }
+                              }
+                              
+                            },
                             child: AnimatedContainer(
                               duration: Duration(seconds: 1),
                               width: changeButton ? 50 : 150,
@@ -237,4 +270,34 @@ class _DonatePageState extends State<DonatePage> {
       ),
     );
   }
+  
+  Future<bool> saveDonationes(
+    String direccion,
+    String tipo,
+    String descripcion,
+    String hora,
+    String dia,
+    String cantidad
+    ) async {
+      try{
+        await FirebaseDatabase.instance
+            .reference()
+            .child('Donaciones')
+            .push()
+            .set(
+              {
+                'direccion': direccion,
+                'tipo': tipo,
+                'descripcion': descripcion,
+                'hora': hora,
+                'dia': dia,
+                'cantidad': cantidad,
+              }
+            );
+          return true;
+      } catch (e){
+        print(e);
+        return false;
+      }
+    }
 }

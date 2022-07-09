@@ -52,6 +52,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '392800324338',
     projectId: 'appeasydonate',
     authDomain: 'appeasydonate.firebaseapp.com',
+    databaseURL: 'https://appeasydonate-default-rtdb.firebaseio.com',
     storageBucket: 'appeasydonate.appspot.com',
   );
 
@@ -60,6 +61,7 @@ class DefaultFirebaseOptions {
     appId: '1:392800324338:android:b3a7a48cdeed1d5d8a1e6b',
     messagingSenderId: '392800324338',
     projectId: 'appeasydonate',
+    databaseURL: 'https://appeasydonate-default-rtdb.firebaseio.com',
     storageBucket: 'appeasydonate.appspot.com',
   );
 
@@ -68,6 +70,7 @@ class DefaultFirebaseOptions {
     appId: '1:392800324338:ios:cf6895b1f38663f88a1e6b',
     messagingSenderId: '392800324338',
     projectId: 'appeasydonate',
+    databaseURL: 'https://appeasydonate-default-rtdb.firebaseio.com',
     storageBucket: 'appeasydonate.appspot.com',
     iosClientId: '392800324338-mik3kblo7ch10iva45so68tgsr02gkje.apps.googleusercontent.com',
     iosBundleId: 'com.example.appEasyDonate',

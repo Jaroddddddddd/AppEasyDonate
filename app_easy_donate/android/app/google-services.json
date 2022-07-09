@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "392800324338",
+    "firebase_url": "https://appeasydonate-default-rtdb.firebaseio.com",
     "project_id": "appeasydonate",
     "storage_bucket": "appeasydonate.appspot.com"
   },
@@ -29,6 +30,13 @@
             {
               "client_id": "392800324338-r4vh44tge2h2grjdi3aj3bbctd4p7r2t.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "392800324338-mik3kblo7ch10iva45so68tgsr02gkje.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.appEasyDonate"
+              }
             }
           ]
         }
