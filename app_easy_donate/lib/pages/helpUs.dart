@@ -1,4 +1,5 @@
 import 'package:app_easy_donate/constants.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:app_easy_donate/utilities/MyRoutes.dart';
 
@@ -10,6 +11,12 @@ class HelpUs extends StatefulWidget {
 }
 
 class _HelpUsState extends State<HelpUs> {
+
+  final TextEditingController _nombreController = TextEditingController();
+  final TextEditingController _direccionController = TextEditingController();
+  final TextEditingController _descripcionController = TextEditingController();
+
+
   bool changeButton = false;
   final _formKey = GlobalKey<FormState>();
 
@@ -65,6 +72,7 @@ class _HelpUsState extends State<HelpUs> {
                     child: TextFormField(
                       keyboardType: TextInputType.streetAddress,
                       autofocus: false,
+                      controller: _nombreController,
                       decoration: InputDecoration(
                         
                           labelText: "Nombre",
@@ -85,6 +93,7 @@ class _HelpUsState extends State<HelpUs> {
                     padding: const EdgeInsets.all(8.0),
                     child: TextFormField(
                       autofocus: false,
+                      controller: _direccionController,
                       decoration: InputDecoration(
                           labelText: "Dirección",
                           hintText: 'Introduzca dirección',
@@ -106,6 +115,7 @@ class _HelpUsState extends State<HelpUs> {
                       keyboardType: TextInputType.multiline,
                       maxLines: 10,
                       autofocus: false,
+                      controller: _descripcionController,
                       decoration: InputDecoration(
                           labelText: "Descripción",
                           hintText: 'Describe cómo podemos ayudarte...',
@@ -131,7 +141,36 @@ class _HelpUsState extends State<HelpUs> {
                           borderRadius:
                               BorderRadius.circular(changeButton ? 50 : 8),
                           child: InkWell(
-                            onTap: () => moveToSubmit(context),
+                            onTap: () async{
+
+                              if(_formKey.currentState!.validate()){
+                                bool respuesta = await saveSolicitudes(
+                                  _nombreController.text,
+                                  _direccionController.text,
+                                  _descripcionController.text,
+ 
+                                );
+
+                                if(respuesta){
+                                  Navigator.pop(context);
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                      content: Text('Solicitud agregada correctamente'),
+                                      backgroundColor: Colors.green,
+                                      )
+                                  );
+
+                                } else {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                      content: Text('Algo salió mal!!!'),
+                                      backgroundColor: Colors.red,
+                                      ),
+                                  );
+                                }
+                              }
+                              
+                            },
                             child: AnimatedContainer(
                               duration: Duration(seconds: 1),
                               width: changeButton ? 50 : 150,
@@ -160,4 +199,29 @@ class _HelpUsState extends State<HelpUs> {
       ),
     );
   }
+  
+  Future<bool> saveSolicitudes(
+    String nombre, 
+    String direccion, 
+    String descripcion
+    ) async {
+      try{
+        await FirebaseDatabase.instance
+            .reference()
+            .child('Solicitudes')
+            .push()
+            .set(
+              {
+                'nombre': nombre,
+                'direccion': direccion,
+                'descripcion': descripcion,
+        
+              }
+            );
+          return true;
+      } catch (e){
+        print(e);
+        return false;
+      }
+    }
 }
