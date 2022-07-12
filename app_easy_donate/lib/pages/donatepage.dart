@@ -20,6 +20,8 @@ class _DonatePageState extends State<DonatePage> {
   final TextEditingController _horaController = TextEditingController();
   final TextEditingController _diaController = TextEditingController();
   final TextEditingController _cantidadController = TextEditingController();
+  final TextEditingController _estadoController = TextEditingController();
+  
 
 
   bool changeButton = false;
@@ -219,6 +221,7 @@ class _DonatePageState extends State<DonatePage> {
                                   _horaController.text,
                                   _diaController.text,
                                   _cantidadController.text,
+                                  _estadoController.text='false'
                                 );
 
                                 if(respuesta){
@@ -277,7 +280,8 @@ class _DonatePageState extends State<DonatePage> {
     String descripcion,
     String hora,
     String dia,
-    String cantidad
+    String cantidad,
+    String estado
     ) async {
       try{
         await FirebaseDatabase.instance
@@ -292,6 +296,7 @@ class _DonatePageState extends State<DonatePage> {
                 'hora': hora,
                 'dia': dia,
                 'cantidad': cantidad,
+                'estado': estado
               }
             );
           return true;

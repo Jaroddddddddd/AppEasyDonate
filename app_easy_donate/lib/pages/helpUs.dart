@@ -15,6 +15,7 @@ class _HelpUsState extends State<HelpUs> {
   final TextEditingController _nombreController = TextEditingController();
   final TextEditingController _direccionController = TextEditingController();
   final TextEditingController _descripcionController = TextEditingController();
+  final TextEditingController _estadoController = TextEditingController();
 
 
   bool changeButton = false;
@@ -148,6 +149,7 @@ class _HelpUsState extends State<HelpUs> {
                                   _nombreController.text,
                                   _direccionController.text,
                                   _descripcionController.text,
+                                  _estadoController.text='false'
  
                                 );
 
@@ -203,7 +205,8 @@ class _HelpUsState extends State<HelpUs> {
   Future<bool> saveSolicitudes(
     String nombre, 
     String direccion, 
-    String descripcion
+    String descripcion, 
+    String estado
     ) async {
       try{
         await FirebaseDatabase.instance
@@ -215,6 +218,7 @@ class _HelpUsState extends State<HelpUs> {
                 'nombre': nombre,
                 'direccion': direccion,
                 'descripcion': descripcion,
+                'estado': 'false'
         
               }
             );
