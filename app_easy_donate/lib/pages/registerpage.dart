@@ -58,7 +58,7 @@ class _RegisterPageState extends State<RegisterPage> {
         padding: EdgeInsets.only(top:50 , left:20 , right: 20),
          child:Column(
            children:[
-             Text("Registro en App Easy Donate" , style:TextStyle(fontSize:32.0  , fontWeight: FontWeight.w600, color:Color.fromARGB(255, 14, 14, 14))),
+             Text("Registro en App Easy Donate" , textAlign: TextAlign.center, style:TextStyle(fontSize:32.0  , fontWeight: FontWeight.w600, color:Color.fromARGB(255, 14, 14, 14))),
               SizedBox(height:70),
                   CircleAvatar(
                     radius: 100,

@@ -65,7 +65,7 @@ class _LoginPageState extends State<LoginPage> {
         padding: EdgeInsets.only(top:50 , left:20 , right: 20),
          child:Column(
            children:[
-             Text("Iniciar Sesión en App Easy Donate" , style:TextStyle(fontSize:32.0  , fontWeight: FontWeight.w600, color:Color.fromARGB(255, 14, 14, 14))),
+             Text("Iniciar Sesión en App Easy Donate" , textAlign: TextAlign.center, style:TextStyle(fontSize:32.0 , fontWeight: FontWeight.w600, color:Color.fromARGB(255, 14, 14, 14))),
               SizedBox(height:70),
                   CircleAvatar(
                     radius: 100,
@@ -208,7 +208,8 @@ class _LoginPageState extends State<LoginPage> {
 
                          
                     },
-                     child: Text("Entrar" , style: TextStyle(fontSize:21.0 ,color:Color.fromARGB(255, 255, 255, 255), fontWeight:FontWeight.w700),) , 
+                    
+                     child: Text("Entrar" '' , style: TextStyle(fontSize:21.0 ,color:Color.fromARGB(255, 255, 255, 255), fontWeight:FontWeight.w700),) , 
                      style: ButtonStyle(
                         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(
@@ -218,16 +219,18 @@ class _LoginPageState extends State<LoginPage> {
                        backgroundColor: MaterialStateProperty.all<Color>(Color.fromARGB(255, 71, 81, 216)),
                     ),
                      ),
-
+            
                      
         ),
 
                   SizedBox(height:25),
                   Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
+                    
                     children: [
-
-                      Text("¿No tienes una cuenta ? " ,style:TextStyle(color: Color.fromARGB(255, 15, 15, 15) , fontWeight:FontWeight.w400)),
+                        
+                      Text("¿No tienes una cuenta? ", style:TextStyle(color: Color.fromARGB(255, 15, 15, 15) , fontWeight:FontWeight.w400)),
                                 
                                 InkWell(
                                   onTap: (){
@@ -235,15 +238,20 @@ class _LoginPageState extends State<LoginPage> {
                                    context,
                                  MaterialPageRoute(builder: (context) => RegisterPage()),
                                                           );
+                            
                                   },
-                                child: Text("Registrate! " ,
+                                
+                                
+                                child: Text("Registrate! ", 
                                
-                                  style:TextStyle(color: Colors.blueAccent ,   fontWeight:FontWeight.w400)),
+                                  style:TextStyle(color: Colors.blueAccent ,   fontWeight:FontWeight.w400, )),
+                                  
                                 ),
-
                                 SizedBox(height:10),
+
+                                SizedBox(height:10), 
 //backgroundColor
-                      
+                     //const Padding(padding: EdgeInsets.all(15.0)),
                       Text("Entrar como ONG " ,style:TextStyle(color: Color.fromARGB(255, 18, 17, 17) , fontWeight:FontWeight.w400)),
                             InkWell(
                                   onTap: (){
@@ -258,14 +266,20 @@ class _LoginPageState extends State<LoginPage> {
                                   style:TextStyle(color: Color.fromARGB(255, 113, 65, 234) ,   fontWeight:FontWeight.w400) ),
                                   
                                 ),  
-                                          
+                              SizedBox(height:40),             
                     ],
+                    
+                    
                   )
                         
              ]
+             
          )
+         
     ),]
+    
      )
+     
       )
     
     );
