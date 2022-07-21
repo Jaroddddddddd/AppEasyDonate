@@ -6,7 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:app_easy_donate/utilities/MyRoutes.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:app_easy_donate/pages/authprovider.dart';
+import 'package:app_easy_donate/provider/authprovider.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -204,12 +204,9 @@ class _LoginPageState extends State<LoginPage> {
                               );
 
                   }
-                    
-
-                         
                     },
-                    
                      child: Text("Entrar" '' , style: TextStyle(fontSize:21.0 ,color:Color.fromARGB(255, 255, 255, 255), fontWeight:FontWeight.w700),) , 
+                     
                      style: ButtonStyle(
                         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(
@@ -217,11 +214,16 @@ class _LoginPageState extends State<LoginPage> {
                         side: BorderSide(color: Color.fromARGB(255, 234, 234, 240))
                             )),
                        backgroundColor: MaterialStateProperty.all<Color>(Color.fromARGB(255, 71, 81, 216)),
+                       
                     ),
+                    
                      ),
+  
+                     
             
                      
         ),
+  
 
                   SizedBox(height:25),
                   Row(

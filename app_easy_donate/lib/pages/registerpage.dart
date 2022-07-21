@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:app_easy_donate/utilities/MyRoutes.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:app_easy_donate/pages/authprovider.dart';
+import 'package:app_easy_donate/provider/authprovider.dart';
 
 
 class RegisterPage extends StatefulWidget {
