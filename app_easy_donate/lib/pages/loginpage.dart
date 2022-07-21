@@ -225,12 +225,12 @@ class _LoginPageState extends State<LoginPage> {
 
                   SizedBox(height:25),
                   Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     
                     children: [
                         
-                      Text("¿No tienes una cuenta? ", style:TextStyle(color: Color.fromARGB(255, 15, 15, 15) , fontWeight:FontWeight.w400)),
+                      Text("¿No tienes cuenta? ", style:TextStyle(color: Color.fromARGB(255, 15, 15, 15) , fontWeight:FontWeight.w400)),
                                 
                                 InkWell(
                                   onTap: (){
@@ -242,7 +242,7 @@ class _LoginPageState extends State<LoginPage> {
                                   },
                                 
                                 
-                                child: Text("Registrate! ", 
+                                child: Text("Registrate!", 
                                
                                   style:TextStyle(color: Colors.blueAccent ,   fontWeight:FontWeight.w400, )),
                                   
@@ -252,7 +252,7 @@ class _LoginPageState extends State<LoginPage> {
                                 SizedBox(height:10), 
 //backgroundColor
                      //const Padding(padding: EdgeInsets.all(15.0)),
-                      Text("Entrar como ONG " ,style:TextStyle(color: Color.fromARGB(255, 18, 17, 17) , fontWeight:FontWeight.w400)),
+                      Text("Entrar como " ,style:TextStyle(color: Color.fromARGB(255, 18, 17, 17) , fontWeight:FontWeight.w400)),
                             InkWell(
                                   onTap: (){
                                     
@@ -261,12 +261,13 @@ class _LoginPageState extends State<LoginPage> {
                           MaterialPageRoute(builder: (context) => HomeONG()),
                           );
                                   },
-                                child: Text("¿Entrar? " ,
+                                child: Text("ONG" ,
                                
                                   style:TextStyle(color: Color.fromARGB(255, 113, 65, 234) ,   fontWeight:FontWeight.w400) ),
                                   
                                 ),  
-                              SizedBox(height:40),             
+                              SizedBox(height:40),    
+                           
                     ],
                     
                     
